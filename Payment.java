@@ -11,25 +11,20 @@ public class Payment {
         this.paymentStatus = "Pending";
     }
 
-    // Overloading Method Credit Card
-    public void payCredit(String paymentMethod) {
+    //overloading bank transfer dan credit card
+    public void pay(String paymentMethod) {
         this.paymentMethod = paymentMethod;
         this.paymentStatus = "Pembayaran Berhasil dengan " + paymentMethod;
     }
-
-    // Overloading Method Bank Transfer
-    public void payBank(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
-        this.paymentStatus = "Pembayaran Berhasil dengan " + paymentMethod;
-    }
-
-    // Overloading Method Voucher
-    public void payVoucher(String paymentMethod, double discountPercent) {
+    
+    //overloading diskon
+    public void pay(String paymentMethod, double discountPercent) {
         this.paymentMethod = paymentMethod;
         double discount = totalPrice * (discountPercent / 100);
-        totalPrice = totalPrice - discount;
-        this.paymentStatus = "Pembayaran Berhasil dengan " + paymentMethod;
+        totalPrice -= discount;
+        this.paymentStatus = "Pembayaran Berhasil dengan " + paymentMethod + " (Diskon " + discountPercent + "%)";
     }
+    
 
     // Void Method Menampilkan detail pembayaran
     public void displayPaymentDetails() {
